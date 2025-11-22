@@ -2,9 +2,6 @@ import React, { useRef } from ‘react’;
 import { motion, useScroll, useTransform } from ‘framer-motion’;
 import { ChevronDown } from ‘lucide-react’;
 
-// Import directo de la imagen
-import heroBottle from ‘/public/assets/botella-batichile.png’;
-
 export const ScrollHero: React.FC = () => {
 const targetRef = useRef<HTMLDivElement>(null);
 
@@ -24,13 +21,15 @@ const bgOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.2]);
 const textY = useTransform(scrollYProgress, [0, 0.3], [0, -200]);
 const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
+const HERO_BOTTLE_IMAGE = “/assets/botella-batichile.png”;
+
 const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
 const target = e.target as HTMLImageElement;
 console.error(`Error cargando imagen Hero: ${target.src}`);
 target.style.display = ‘none’;
 const div = document.createElement(‘div’);
 div.className = ‘w-full h-full flex items-center justify-center bg-red-600 text-white font-bold border-4 border-white text-center p-2’;
-div.innerHTML = ‘ERROR:<br>Imagen no encontrada<br>botella-batichile.png’;
+div.innerHTML = ‘ERROR:<br>Imagen no encontrada<br>/assets/botella-batichile.png’;
 target.parentElement?.appendChild(div);
 };
 
@@ -59,7 +58,7 @@ return (
         BATICHILE
       </h1>
       <p className="text-xl md:text-2xl text-bat-white max-w-2xl mx-auto font-bold bg-black/80 p-4 border-2 border-bat-yellow transform rotate-1">
-        "Desde lo más profundo de la baticueva..."
+        "Desde lo mas profundo de la baticueva..."
       </p>
       
       <div className="mt-10 animate-bounce flex flex-col items-center gap-2">
@@ -76,7 +75,7 @@ return (
       
       <div className="w-full h-full relative">
         <img 
-            src={heroBottle}
+            src={HERO_BOTTLE_IMAGE}
             alt="Botella Batichile Hero" 
             onError={handleImageError}
             className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] relative z-10"
@@ -103,7 +102,7 @@ return (
         }}
     >
         <h3 className="text-2xl text-black comic-font mb-1">¡POW!</h3>
-        <p className="text-black font-bold leading-tight">Sin conservadores. Pura justicia líquida.</p>
+        <p className="text-black font-bold leading-tight">Sin conservadores. Pura justicia liquida.</p>
     </motion.div>
 
   </div>
