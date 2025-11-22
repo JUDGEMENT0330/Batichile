@@ -1,26 +1,8 @@
-
 import React from 'react';
 import { PRODUCTS } from '../constants';
 import { ComicButton } from './ComicButton';
 
 export const Products: React.FC = () => {
-  // Función para manejar errores de carga de imagen
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.target as HTMLImageElement;
-    console.error(`Error cargando imagen de producto: ${target.src}`);
-    
-    target.style.display = 'none'; // Ocultar imagen rota
-    target.parentElement?.classList.add('bg-red-100', 'border-2', 'border-red-500', 'border-dashed');
-    
-    // Crear un elemento de texto para avisar
-    const span = document.createElement('span');
-    // Intentar extraer el nombre del archivo de la URL para mostrarlo
-    const fileName = target.src.split('/').pop() || 'archivo desconocido';
-    span.innerHTML = `FALTA IMAGEN:<br>${fileName}<br><span class="text-[10px] font-normal text-black">(Check public/assets)</span>`;
-    span.className = 'text-xs text-red-600 font-bold text-center p-2 block break-all';
-    target.parentElement?.appendChild(span);
-  };
-
   return (
     <section id="productos" className="py-24 bg-bat-black relative">
       <div className="absolute inset-0 bg-halftone opacity-50"></div>
@@ -48,28 +30,27 @@ export const Products: React.FC = () => {
 
               <div className="mt-8 mb-4 flex-grow text-center flex flex-col items-center">
                  
-                 {/* Contenedor de Imagen del Personaje - MAS GRANDE */}
-                 <div className="relative w-full h-64 mb-4 flex items-end justify-center">
-                    {/* Fondo de impacto detrás del personaje */}
+                 {/* IMAGEN DE PERSONAJE (Recuperada desde Assets) */}
+                 <div className="relative w-full h-64 mb-4 flex items-center justify-center px-2">
+                    {/* Fondo de impacto */}
                     <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full opacity-20 scale-100 group-hover:scale-125 transition-transform duration-500 ${product.color}`}></div>
                     
                     {/* Imagen del personaje */}
-                    <div className="relative z-10 w-full h-full flex items-end justify-center group-hover:scale-110 transition-transform duration-300">
-                        <img 
+                    <div className="relative z-10 w-full h-full flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-300">
+                         <img 
                             src={product.characterImage} 
                             alt={product.characterName}
-                            onError={handleImageError}
-                            className="max-h-full max-w-full object-contain drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        />
+                            className="max-h-full max-w-full object-contain drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)] hover:scale-110 transition-all duration-300"
+                         />
                     </div>
                     
-                    {/* Bocadillo de texto pequeño estilo cómic decorativo */}
-                    <div className="absolute right-2 top-10 bg-white border-2 border-black px-2 py-1 text-xs font-bold transform rotate-12 shadow-[2px_2px_0_#000] z-20 animate-bounce">
+                    {/* Bocadillo de texto */}
+                    <div className="absolute right-0 top-4 bg-white border-2 border-black px-2 py-1 text-xs font-bold transform rotate-12 shadow-[2px_2px_0_#000] z-20 animate-bounce">
                         HA-HA!
                     </div>
                  </div>
 
-                 {/* Título del Producto con Borde Estilo Cómic */}
+                 {/* Título del Producto */}
                  <h3 
                    className={`text-4xl lg:text-5xl comic-font mb-1 ${product.titleColor} text-stroke-black`}
                    style={{ 
