@@ -27,15 +27,17 @@ export const ScrollHero: React.FC = () => {
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   // URL DE TU BOTELLA HERO (Principal)
-  const HERO_BOTTLE_IMAGE = "/assets/botella-batichile.png";
+  // Usamos ./ para ruta relativa, mejor compatibilidad
+  const HERO_BOTTLE_IMAGE = "./assets/botella-batichile.png";
 
   // Error handling visual
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
+    console.error(`Error cargando imagen Hero: ${target.src}`);
     target.style.display = 'none';
     const div = document.createElement('div');
     div.className = 'w-full h-full flex items-center justify-center bg-red-600 text-white font-bold border-4 border-white text-center p-2';
-    div.innerHTML = 'ERROR:<br>Imagen no encontrada<br>/assets/botella-batichile.png';
+    div.innerHTML = 'ERROR:<br>Imagen no encontrada<br>./assets/botella-batichile.png';
     target.parentElement?.appendChild(div);
   };
 
