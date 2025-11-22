@@ -25,9 +25,9 @@ export const ScrollHero: React.FC = () => {
   const textY = useTransform(scrollYProgress, [0, 0.3], [0, -200]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  // IMAGEN HERO: Actualizada para usar el archivo local en public/assets
-  // Esta ruta busca en public/assets/botella-batichile.png
-  const HERO_BOTTLE_IMAGE = "/assets/botella-batichile.png";
+  // IMAGEN HERO: Usamos un placeholder de alta calidad para la demo
+  // Cambia esto por './assets/botella-batichile.png' cuando tengas tu archivo real
+  const HERO_BOTTLE_IMAGE = "https://placehold.co/300x800/8A0303/FFFFFF/png?text=BOTELLA+HERO&font=roboto";
 
   // Error handling visual
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -36,7 +36,7 @@ export const ScrollHero: React.FC = () => {
     target.style.display = 'none';
     const div = document.createElement('div');
     div.className = 'w-full h-full flex items-center justify-center bg-red-600 text-white font-bold border-4 border-white text-center p-2';
-    div.innerHTML = 'ERROR:<br>Imagen vacía o no encontrada<br><small>Revisa public/assets</small>';
+    div.innerHTML = 'ERROR:<br>Imagen no encontrada';
     target.parentElement?.appendChild(div);
   };
 
