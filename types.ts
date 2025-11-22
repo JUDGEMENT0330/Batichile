@@ -12,11 +12,10 @@ export interface Product {
   description: string;
   color: string;
   textColor: string;
-  titleColor: string; // Nuevo campo para el color del título
+  titleColor: string;
   characterName: string;
   price: number;
-  productImage: string;
-  characterImage: string;
+  characterImage: string; // Solo mantenemos la imagen del personaje
 }
 
 export interface ComicPanelProps {
