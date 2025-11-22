@@ -25,21 +25,6 @@ export const ScrollHero: React.FC = () => {
   const textY = useTransform(scrollYProgress, [0, 0.3], [0, -200]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  // IMAGEN HERO: Usamos un placeholder de alta calidad para la demo
-  // Cambia esto por './assets/botella-batichile.png' cuando tengas tu archivo real
-  const HERO_BOTTLE_IMAGE = "https://placehold.co/300x800/8A0303/FFFFFF/png?text=BOTELLA+HERO&font=roboto";
-
-  // Error handling visual
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.target as HTMLImageElement;
-    console.error(`Error cargando imagen Hero: ${target.src}`);
-    target.style.display = 'none';
-    const div = document.createElement('div');
-    div.className = 'w-full h-full flex items-center justify-center bg-red-600 text-white font-bold border-4 border-white text-center p-2';
-    div.innerHTML = 'ERROR:<br>Imagen no encontrada';
-    target.parentElement?.appendChild(div);
-  };
-
   return (
     <div ref={targetRef} className="h-[300vh] relative z-10">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-halftone">
@@ -84,14 +69,13 @@ export const ScrollHero: React.FC = () => {
           {/* Bottle Glow Effect */}
           <div className="absolute inset-0 bg-bat-red blur-3xl opacity-30 rounded-full scale-90"></div>
           
-          {/* IMAGEN DE LA BOTELLA */}
-          <div className="w-full h-full relative">
-            <img 
-                src={HERO_BOTTLE_IMAGE} 
-                alt="Botella Batichile Hero" 
-                onError={handleImageError}
-                className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] relative z-10"
-            />
+          {/* BOTELLA REAL (Imagen desde Assets) */}
+          <div className="relative w-full h-full flex items-center justify-center transform -rotate-3">
+             <img 
+               src="/assets/botella-batichile.png" 
+               alt="Salsa Batichile Hero" 
+               className="w-full h-full object-contain drop-shadow-[10px_10px_0_#000]"
+             />
           </div>
           
         </motion.div>
