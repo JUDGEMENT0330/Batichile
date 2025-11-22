@@ -21,59 +21,62 @@ export const Products: React.FC = () => {
           {PRODUCTS.map((product, index) => (
             <div 
               key={product.id}
-              className="group relative bg-white border-4 border-black p-4 flex flex-col h-full transition-transform hover:-translate-y-2 hover:shadow-comic-yellow duration-300 overflow-visible"
+              className="group flex flex-col h-full"
             >
-              {/* Header Tag - Spice Level */}
-              <div className={`absolute -top-5 left-1/2 -translate-x-1/2 px-4 py-1 border-2 border-black font-bold uppercase tracking-wider text-sm ${product.color} ${product.textColor} shadow-[2px_2px_0_#000] z-30 whitespace-nowrap`}>
-                Nivel: {product.level}
+              {/* COMIC PANEL (VIÑETA) - No bottles, just character */}
+              <div className={`relative w-full aspect-square border-4 border-black shadow-comic ${product.color} overflow-hidden mb-4 transition-transform hover:-translate-y-2 duration-300`}>
+                
+                {/* Corner decoration */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-r-2 border-b-2 border-black bg-white z-20"></div>
+                
+                {/* Spice Level Tag inside panel */}
+                <div className="absolute top-2 right-2 bg-black text-white text-xs font-bold px-2 py-1 transform rotate-2 z-20 border border-white">
+                   NIVEL: {product.level}
+                </div>
+
+                {/* Character Image */}
+                <div className="absolute inset-0 flex items-end justify-center p-2">
+                    <img 
+                        src={product.characterImage} 
+                        alt={product.characterName}
+                        className="w-full h-full object-contain drop-shadow-[4px_4px_0px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform duration-300"
+                    />
+                </div>
+
+                {/* Comic Action Text/Onomatopoeia */}
+                <div className="absolute bottom-2 left-2 bg-white border-2 border-black px-2 py-0.5 text-xs font-black transform -rotate-6 z-20 shadow-[2px_2px_0_#000]">
+                    {product.id === 'bane-no' ? '¡CRACK!' : product.id === 'enigma' ? '¿?' : '¡BOOM!'}
+                </div>
               </div>
 
-              <div className="mt-8 mb-4 flex-grow text-center flex flex-col items-center">
-                 
-                 {/* IMAGEN DE PERSONAJE (Recuperada desde Assets) */}
-                 <div className="relative w-full h-64 mb-4 flex items-center justify-center px-2">
-                    {/* Fondo de impacto */}
-                    <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full opacity-20 scale-100 group-hover:scale-125 transition-transform duration-500 ${product.color}`}></div>
-                    
-                    {/* Imagen del personaje */}
-                    <div className="relative z-10 w-full h-full flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-300">
-                         <img 
-                            src={product.characterImage} 
-                            alt={product.characterName}
-                            className="max-h-full max-w-full object-contain drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)] hover:scale-110 transition-all duration-300"
-                         />
-                    </div>
-                    
-                    {/* Bocadillo de texto */}
-                    <div className="absolute right-0 top-4 bg-white border-2 border-black px-2 py-1 text-xs font-bold transform rotate-12 shadow-[2px_2px_0_#000] z-20 animate-bounce">
-                        HA-HA!
-                    </div>
-                 </div>
-
-                 {/* Título del Producto */}
+              {/* Information Panel */}
+              <div className="bg-white border-4 border-black p-4 flex-grow flex flex-col relative">
+                 {/* Title overlapping slightly */}
                  <h3 
-                   className={`text-4xl lg:text-5xl comic-font mb-1 ${product.titleColor} text-stroke-black`}
-                   style={{ 
-                     filter: 'drop-shadow(3px 3px 0px rgba(0,0,0,1))' 
-                   }}
+                   className={`text-4xl comic-font mb-1 ${product.titleColor} text-stroke-black -mt-6 bg-white inline-block self-start px-2 border-2 border-black transform -rotate-2 shadow-[2px_2px_0_#000] z-30`}
                  >
                    {product.name}
                  </h3>
                  
-                 <p className="text-xs font-bold text-gray-500 uppercase mb-2 tracking-widest">{product.characterName}</p>
-                 <p className="text-base leading-snug font-medium text-gray-800 border-t-2 border-dashed border-gray-300 pt-3 pb-2">
-                   {product.description}
-                 </p>
-              </div>
+                 <div className="mt-4 mb-4 flex-grow">
+                    <p className="text-xs font-bold text-gray-500 uppercase mb-1 tracking-widest flex items-center gap-2">
+                        <span className={`w-3 h-3 rounded-full ${product.color} border border-black`}></span>
+                        {product.characterName}
+                    </p>
+                    <p className="text-base leading-snug font-medium text-gray-900 font-sans">
+                    {product.description}
+                    </p>
+                 </div>
 
-              <div className="mt-auto">
-                <div className="flex justify-between items-center mb-3 px-2 bg-gray-100 rounded p-1 border border-gray-200">
-                   <span className="text-xs font-bold text-gray-500 uppercase">Cont. Neto 50ml</span>
-                   <span className="text-xl font-black font-serif text-bat-black">${product.price}</span>
+                <div className="flex justify-between items-end gap-4 mt-auto pt-4 border-t-2 border-dashed border-gray-300">
+                    <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-gray-500 uppercase">Precio</span>
+                        <span className="text-2xl font-black font-serif text-bat-black">${product.price}</span>
+                    </div>
+                    <ComicButton className="text-xs px-4 py-2" variant={product.id === 'bane-no' ? 'danger' : 'primary'}>
+                        COMPRAR
+                    </ComicButton>
                 </div>
-                <ComicButton className="w-full text-sm py-3 tracking-widest" variant={product.id === 'bane-no' ? 'danger' : 'primary'}>
-                  AGREGAR AL CARRO
-                </ComicButton>
               </div>
             </div>
           ))}
