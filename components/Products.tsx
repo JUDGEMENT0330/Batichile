@@ -7,13 +7,17 @@ export const Products: React.FC = () => {
   // Función para manejar errores de carga de imagen
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
+    console.error(`Error cargando imagen de producto: ${target.src}`);
+    
     target.style.display = 'none'; // Ocultar imagen rota
     target.parentElement?.classList.add('bg-red-100', 'border-2', 'border-red-500', 'border-dashed');
     
     // Crear un elemento de texto para avisar
     const span = document.createElement('span');
-    span.innerText = 'FALTA IMAGEN\n(Revisar /public/assets/)';
-    span.className = 'text-xs text-red-600 font-bold text-center p-2 block';
+    // Intentar extraer el nombre del archivo de la URL para mostrarlo
+    const fileName = target.src.split('/').pop() || 'archivo desconocido';
+    span.innerHTML = `FALTA IMAGEN:<br>${fileName}<br><span class="text-[10px] font-normal text-black">(Check public/assets)</span>`;
+    span.className = 'text-xs text-red-600 font-bold text-center p-2 block break-all';
     target.parentElement?.appendChild(span);
   };
 
