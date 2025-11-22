@@ -2,7 +2,7 @@ import React, { useRef } from ‘react’;
 import { motion, useScroll, useTransform } from ‘framer-motion’;
 import { ChevronDown } from ‘lucide-react’;
 
-// ✅ MÉTODO 1: IMPORTAR IMAGEN DIRECTAMENTE
+// Import directo de la imagen
 import heroBottle from ‘/public/assets/botella-batichile.png’;
 
 export const ScrollHero: React.FC = () => {
