@@ -11,8 +11,8 @@ export const PRODUCTS: Product[] = [
     titleColor: 'text-gray-900', // Dark for "Sombra"
     characterName: 'El Detective Silencioso',
     price: 150,
-    productImage: '/assets/botella-batichile.png', 
-    characterImage: '/assets/personaje-sombra.png', 
+    productImage: './assets/botella-batichile.png', 
+    characterImage: './assets/personaje-sombra.png', 
   },
   {
     id: 'vigilante',
@@ -24,8 +24,8 @@ export const PRODUCTS: Product[] = [
     titleColor: 'text-yellow-400', // Bright Yellow for "Vigilante"
     characterName: 'El Guardián Dorado',
     price: 180,
-    productImage: '/assets/botella-batichile.png',
-    characterImage: '/assets/personaje-vigilante.png',
+    productImage: './assets/botella-batichile.png',
+    characterImage: './assets/personaje-vigilante.png',
   },
   {
     id: 'enigma',
@@ -37,8 +37,8 @@ export const PRODUCTS: Product[] = [
     titleColor: 'text-green-500', // Green for "Enigma" to contrast with purple cues
     characterName: 'El Acertijo Verde',
     price: 200,
-    productImage: '/assets/botella-batichile.png',
-    characterImage: '/assets/personaje-enigma.png',
+    productImage: './assets/botella-batichile.png',
+    characterImage: './assets/personaje-enigma.png',
   },
   {
     id: 'bane-no',
@@ -50,8 +50,8 @@ export const PRODUCTS: Product[] = [
     titleColor: 'text-red-600', // Bright Red for "Bane-no"
     characterName: 'El Rompedor',
     price: 250,
-    productImage: '/assets/botella-batichile.png',
-    characterImage: '/assets/personaje-baneno.png',
+    productImage: './assets/botella-batichile.png',
+    characterImage: './assets/personaje-baneno.png',
   }
 ];
 
