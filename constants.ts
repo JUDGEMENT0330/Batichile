@@ -1,12 +1,5 @@
 import { Product, SpiceLevel } from ‘./types’;
 
-// Import directo de todas las imágenes
-import botellaImg from ‘/public/assets/botella-batichile.png’;
-import sombraImg from ‘/public/assets/personaje-sombra.png’;
-import vigilanteImg from ‘/public/assets/personaje-vigilante.png’;
-import enigmaImg from ‘/public/assets/personaje-enigma.png’;
-import banenoImg from ‘/public/assets/personaje-baneno.png’;
-
 export const PRODUCTS: Product[] = [
 {
 id: ‘sombra’,
@@ -18,8 +11,8 @@ textColor: ‘text-gray-200’,
 titleColor: ‘text-gray-900’,
 characterName: ‘El Detective Silencioso’,
 price: 150,
-productImage: botellaImg,
-characterImage: sombraImg,
+productImage: ‘/assets/botella-batichile.png’,
+characterImage: ‘/assets/personaje-sombra.png’,
 },
 {
 id: ‘vigilante’,
@@ -29,10 +22,10 @@ description: ‘El equilibrio entre la justicia y el caos. Sabor que golpea pero
 color: ‘bg-bat-yellow’,
 textColor: ‘text-bat-black’,
 titleColor: ‘text-yellow-400’,
-characterName: ‘El Guardián Dorado’,
+characterName: ‘El Guardian Dorado’,
 price: 180,
-productImage: botellaImg,
-characterImage: vigilanteImg,
+productImage: ‘/assets/botella-batichile.png’,
+characterImage: ‘/assets/personaje-vigilante.png’,
 },
 {
 id: ‘enigma’,
@@ -44,21 +37,21 @@ textColor: ‘text-green-400’,
 titleColor: ‘text-green-500’,
 characterName: ‘El Acertijo Verde’,
 price: 200,
-productImage: botellaImg,
-characterImage: enigmaImg,
+productImage: ‘/assets/botella-batichile.png’,
+characterImage: ‘/assets/personaje-enigma.png’,
 },
 {
 id: ‘bane-no’,
 name: ‘BANE-NO’,
 level: SpiceLevel.Extreme,
-description: ‘La fuerza bruta. Te romperá la resistencia. Solo para los valientes que no temen a la oscuridad.’,
+description: ‘La fuerza bruta. Te rompera la resistencia. Solo para los valientes que no temen a la oscuridad.’,
 color: ‘bg-bat-red’,
 textColor: ‘text-white’,
 titleColor: ‘text-red-600’,
 characterName: ‘El Rompedor’,
 price: 250,
-productImage: botellaImg,
-characterImage: banenoImg,
+productImage: ‘/assets/botella-batichile.png’,
+characterImage: ‘/assets/personaje-baneno.png’,
 }
 ];
 
