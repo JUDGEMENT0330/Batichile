@@ -1,6 +1,6 @@
 import { Product, SpiceLevel } from ‘./types’;
 
-// ✅ MÉTODO 1: IMPORTAR IMÁGENES DIRECTAMENTE
+// Import directo de todas las imágenes
 import botellaImg from ‘/public/assets/botella-batichile.png’;
 import sombraImg from ‘/public/assets/personaje-sombra.png’;
 import vigilanteImg from ‘/public/assets/personaje-vigilante.png’;
