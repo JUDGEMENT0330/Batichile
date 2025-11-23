@@ -1,8 +1,5 @@
 import { Product, SpiceLevel } from './types';
 
-// Rutas apuntando a public/assets/
-// Solo se utilizan las imágenes de personajes (characterImage)
-
 export const PRODUCTS: Product[] = [
   {
     id: 'sombra',
