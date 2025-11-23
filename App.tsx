@@ -5,7 +5,7 @@ import { Products } from './components/Products';
 import { History } from './components/History';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Product, CartItem } from './types';
 import { ComicButton } from './components/ComicButton';
 
@@ -70,14 +70,13 @@ const App: React.FC = () => {
             <a href="#historia" className="font-bold text-lg uppercase hover:text-bat-yellow hover:underline decoration-wavy decoration-bat-red underline-offset-4 transition-all">Historia</a>
             <a href="#productos" className="font-bold text-lg uppercase hover:text-bat-yellow hover:underline decoration-wavy decoration-bat-red underline-offset-4 transition-all">Salsas</a>
             
-            {/* Cart Button Comic Style */}
+            {/* Cart Button Comic Style - TEXT ONLY */}
             <div className="relative">
               <ComicButton 
                 variant="primary" 
-                className="text-sm px-4 py-1 flex items-center gap-2 !border-2"
+                className="text-sm px-6 py-1 flex items-center gap-2 !border-2"
                 onClick={() => setIsCartOpen(true)}
               >
-                <ShoppingCart size={18} />
                 COMPRAS
               </ComicButton>
               
@@ -92,9 +91,8 @@ const App: React.FC = () => {
           {/* Mobile Actions */}
           <div className="md:hidden flex items-center gap-4">
             <div className="relative" onClick={() => setIsCartOpen(true)}>
-               <ComicButton variant="primary" className="!px-3 !py-1 text-sm flex items-center gap-1">
-                 <ShoppingCart size={16} />
-                 <span className="text-xs">COMPRAS</span>
+               <ComicButton variant="primary" className="!px-4 !py-1 text-sm flex items-center gap-1">
+                 <span className="text-xs font-bold">COMPRAS</span>
                </ComicButton>
                {cartCount > 0 && (
                 <span className="absolute -top-2 -right-1 bg-bat-red text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border border-white">
