@@ -42,8 +42,8 @@ export const Products: React.FC<ProductsProps> = ({ addToCart }) => {
                    NIVEL: {product.level}
                 </div>
 
-                {/* Comic Action Text/Onomatopoeia - MOVED TO TOP LEFT to clear character space */}
-                <div className="absolute top-2 left-2 bg-white border-2 border-black px-3 py-1 text-sm font-black transform -rotate-6 z-20 shadow-[4px_4px_0_#000]">
+                {/* Comic Action Text/Onomatopoeia - Fixed Text Color */}
+                <div className="absolute top-2 left-2 bg-white border-2 border-black px-3 py-1 text-sm font-black text-black transform -rotate-6 z-20 shadow-[4px_4px_0_#000]">
                     {product.id === 'bane-no' ? '¡CRACK!' : product.id === 'enigma' ? '¿?' : '¡BOOM!'}
                 </div>
 
@@ -60,7 +60,7 @@ export const Products: React.FC<ProductsProps> = ({ addToCart }) => {
               {/* Information Panel */}
               <div className="bg-white border-x-4 border-b-4 border-black p-5 md:p-6 flex-grow flex flex-col relative shadow-[8px_8px_0_rgba(0,0,0,0.5)]">
                  
-                 {/* Title overlapping slightly - Increased Size and Font */}
+                 {/* Title overlapping slightly */}
                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-[110%] text-center z-30">
                    <h3 
                      className={`text-4xl md:text-5xl comic-font ${product.titleColor} text-stroke-black bg-white inline-block px-4 py-1 border-4 border-black transform -rotate-1 shadow-[4px_4px_0_#000] whitespace-nowrap`}
