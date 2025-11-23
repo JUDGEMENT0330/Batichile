@@ -15,7 +15,11 @@ export interface Product {
   titleColor: string;
   characterName: string;
   price: number;
-  characterImage: string; // Solo mantenemos la imagen del personaje
+  characterImage: string;
+}
+
+export interface CartItem extends Product {
+  quantity: number;
 }
 
 export interface ComicPanelProps {
