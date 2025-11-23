@@ -57,7 +57,7 @@ export const History: React.FC = () => {
             />
           </motion.div>
 
-          {/* PANEL 2: The Villain (Bane-no) */}
+          {/* PANEL 2: The Villain (Bane-no) - FIXED IMAGE & LABEL */}
           <motion.div 
             initial={{ opacity: 0, y: -50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,11 +67,11 @@ export const History: React.FC = () => {
           >
              <div className="absolute inset-0 bg-halftone opacity-20"></div>
              
-             {/* Character */}
+             {/* Character - Adjusted positioning to fit better */}
              <motion.img 
                src="/assets/personaje-baneno.png"
                alt="Bane-no"
-               className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 h-[90%] object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+               className="absolute bottom-0 md:bottom-[-10px] left-1/2 -translate-x-1/2 h-[85%] md:h-[90%] w-auto object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
                whileInView={{ y: [20, 0] }}
                whileHover={{ scale: 1.1 }}
              />
@@ -84,39 +84,40 @@ export const History: React.FC = () => {
                ¡SIN<br/>PIEDAD!
              </motion.h3>
              
-             <div className="absolute bottom-2 right-2 bg-white border-2 border-black px-2 py-1 text-xs font-bold shadow-sm z-30">
+             {/* Enemy Label - Fixed Colors */}
+             <div className="absolute bottom-2 right-2 bg-black text-bat-yellow border-2 border-white px-3 py-1 text-xs font-black shadow-md z-30 uppercase tracking-wider transform rotate-2">
                EL ENEMIGO
              </div>
           </motion.div>
 
-          {/* PANEL 3: The Plan (Enigma) - FIXED LEGIBILITY & OVERLAP */}
+          {/* PANEL 3: The Plan (Enigma) - RESTORED GREEN EFFECT */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="md:col-span-2 bg-purple-900 border-4 border-black relative min-h-[250px] overflow-hidden"
+            className="md:col-span-2 bg-purple-900 border-4 border-black relative min-h-[250px] overflow-hidden group"
           >
              <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"></div>
              
-             {/* Character - Moved slightly left to create more space on right for text */}
+             {/* Character - Green Tint Effect restored */}
              <motion.img 
                src="/assets/personaje-enigma.png"
-               className="absolute bottom-0 left-[-20px] md:left-[-10px] w-auto h-[95%] object-contain opacity-90 mix-blend-normal transition-all duration-500 z-10"
+               className="absolute bottom-0 left-[-20px] md:left-[-10px] w-auto h-[95%] object-contain transition-all duration-300 z-10 filter sepia-[.5] hue-rotate-[70deg] saturate-[3] opacity-80 mix-blend-luminosity group-hover:filter-none group-hover:mix-blend-normal group-hover:opacity-100"
              />
 
-             {/* Dialogue Box - Shifted right and ensured z-index covers properly if needed, but positioned to avoid face */}
+             {/* Dialogue Box */}
              <div className="absolute top-4 right-4 bg-white p-3 border-2 border-black max-w-[180px] shadow-[6px_6px_0_#000] rounded-tl-xl rounded-br-xl z-30 transform rotate-1">
                <p className="font-sans text-xs md:text-sm font-bold italic text-black">"¿Cómo crear algo que duela y guste al mismo tiempo?"</p>
              </div>
              
-             {/* Formula - Improved Legibility */}
+             {/* Formula */}
              <div className="absolute bottom-2 right-2 text-green-400 font-mono text-xs md:text-sm font-black tracking-widest bg-black/80 px-2 py-1 rounded border border-green-700 shadow-md z-20">
                 FORMULA: #X92-B
              </div>
           </motion.div>
 
-          {/* PANEL 4: The Explosion (Vigilante) */}
+          {/* PANEL 4: The Explosion (Vigilante) - SMALLER TEXT */}
           <motion.div 
              initial={{ opacity: 0, scale: 0.5 }}
              whileInView={{ opacity: 1, scale: 1 }}
@@ -124,10 +125,8 @@ export const History: React.FC = () => {
              transition={{ delay: 0.4, type: "spring" }}
              className="md:col-span-4 bg-bat-yellow border-4 border-black relative flex items-center justify-center overflow-hidden min-h-[250px] group"
           >
-             {/* Dynamic background rays */}
              <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,_#FFD700_0deg,_#FFC000_20deg,_#FFD700_40deg,_#FFC000_60deg,_#FFD700_80deg,_#FFC000_100deg,_#FFD700_120deg,_#FFC000_140deg,_#FFD700_160deg,_#FFC000_180deg,_#FFD700_200deg,_#FFC000_220deg,_#FFD700_240deg,_#FFC000_260deg,_#FFD700_280deg,_#FFC000_300deg,_#FFD700_320deg,_#FFC000_340deg,_#FFD700_360deg)] opacity-50 animate-[spin_20s_linear_infinite]"></div>
              
-             {/* Character Jumping Out */}
              <motion.img 
                 src="/assets/personaje-vigilante.png"
                 alt="Vigilante Action"
@@ -135,9 +134,10 @@ export const History: React.FC = () => {
                 style={{ filter: 'drop-shadow(10px 10px 0px rgba(0,0,0,0.8))' }}
              />
 
+             {/* Text resized from 9rem to 6rem/7rem to avoid covering character */}
              <motion.div 
-               className="relative z-20 text-8xl md:text-[9rem] comic-font text-bat-red text-stroke-white drop-shadow-[8px_8px_0_#000] transform -rotate-12 pointer-events-none"
-               animate={{ scale: [1, 1.2, 1], rotate: [-12, -5, -12] }}
+               className="relative z-20 text-6xl md:text-8xl comic-font text-bat-red text-stroke-white drop-shadow-[8px_8px_0_#000] transform -rotate-12 pointer-events-none"
+               animate={{ scale: [1, 1.1, 1], rotate: [-12, -8, -12] }}
                transition={{ duration: 0.4, repeat: Infinity, repeatDelay: 3 }}
              >
                ¡KABOOM!
@@ -166,7 +166,6 @@ export const History: React.FC = () => {
                    </div>
                 </div>
                 
-                {/* Heroic Group Shot Placeholder / Icon */}
                 <div className="md:w-1/3 flex justify-center">
                    <motion.div 
                      className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-bat-white border-4 border-black flex items-center justify-center shadow-comic-yellow overflow-hidden relative"
