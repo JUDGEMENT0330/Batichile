@@ -1,8 +1,13 @@
 import React from 'react';
 import { PRODUCTS } from '../constants';
 import { ComicButton } from './ComicButton';
+import { Product } from '../types';
 
-export const Products: React.FC = () => {
+interface ProductsProps {
+  addToCart: (product: Product) => void;
+}
+
+export const Products: React.FC<ProductsProps> = ({ addToCart }) => {
   return (
     <section id="productos" className="py-24 bg-bat-black relative">
       <div className="absolute inset-0 bg-halftone opacity-50"></div>
@@ -74,7 +79,11 @@ export const Products: React.FC = () => {
                         <span className="text-[10px] font-bold text-gray-500 uppercase">Precio</span>
                         <span className="text-2xl font-black font-serif text-bat-black">${product.price}</span>
                     </div>
-                    <ComicButton className="text-xs px-4 py-2" variant={product.id === 'bane-no' ? 'danger' : 'primary'}>
+                    <ComicButton 
+                      className="text-xs px-4 py-2" 
+                      variant={product.id === 'bane-no' ? 'danger' : 'primary'}
+                      onClick={() => addToCart(product)}
+                    >
                         COMPRAR
                     </ComicButton>
                 </div>
