@@ -89,7 +89,7 @@ export const History: React.FC = () => {
              </div>
           </motion.div>
 
-          {/* PANEL 3: The Plan (Enigma) */}
+          {/* PANEL 3: The Plan (Enigma) - FIXED LEGIBILITY & OVERLAP */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -99,16 +99,19 @@ export const History: React.FC = () => {
           >
              <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"></div>
              
+             {/* Character - Moved slightly left to create more space on right for text */}
              <motion.img 
                src="/assets/personaje-enigma.png"
-               className="absolute bottom-0 left-[-20px] w-full h-full object-contain opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500"
+               className="absolute bottom-0 left-[-20px] md:left-[-10px] w-auto h-[95%] object-contain opacity-90 mix-blend-normal transition-all duration-500 z-10"
              />
 
-             <div className="absolute top-4 right-4 bg-white p-4 border-2 border-black max-w-[200px] shadow-[6px_6px_0_#000] rounded-tl-xl rounded-br-xl z-20">
-               <p className="font-sans text-sm font-bold italic">"¿Cómo crear algo que duela y guste al mismo tiempo?"</p>
+             {/* Dialogue Box - Shifted right and ensured z-index covers properly if needed, but positioned to avoid face */}
+             <div className="absolute top-4 right-4 bg-white p-3 border-2 border-black max-w-[180px] shadow-[6px_6px_0_#000] rounded-tl-xl rounded-br-xl z-30 transform rotate-1">
+               <p className="font-sans text-xs md:text-sm font-bold italic text-black">"¿Cómo crear algo que duela y guste al mismo tiempo?"</p>
              </div>
              
-             <div className="absolute bottom-2 left-2 text-bat-green font-mono text-xs opacity-70">
+             {/* Formula - Improved Legibility */}
+             <div className="absolute bottom-2 right-2 text-green-400 font-mono text-xs md:text-sm font-black tracking-widest bg-black/80 px-2 py-1 rounded border border-green-700 shadow-md z-20">
                 FORMULA: #X92-B
              </div>
           </motion.div>
