@@ -37,9 +37,14 @@ export const Products: React.FC<ProductsProps> = ({ addToCart }) => {
                 {/* Corner decoration */}
                 <div className="absolute top-0 left-0 w-8 h-8 border-r-4 border-b-4 border-black bg-white z-20"></div>
                 
-                {/* Spice Level Tag inside panel */}
+                {/* Spice Level Tag inside panel - Top Right */}
                 <div className="absolute top-3 right-3 bg-black text-white text-xs md:text-sm font-bold px-3 py-1 transform rotate-2 z-20 border-2 border-white shadow-md">
                    NIVEL: {product.level}
+                </div>
+
+                {/* Comic Action Text/Onomatopoeia - MOVED TO TOP LEFT to clear character space */}
+                <div className="absolute top-2 left-2 bg-white border-2 border-black px-3 py-1 text-sm font-black transform -rotate-6 z-20 shadow-[4px_4px_0_#000]">
+                    {product.id === 'bane-no' ? '¡CRACK!' : product.id === 'enigma' ? '¿?' : '¡BOOM!'}
                 </div>
 
                 {/* Character Image Container - Full Focus */}
@@ -49,11 +54,6 @@ export const Products: React.FC<ProductsProps> = ({ addToCart }) => {
                         alt={product.characterName}
                         className="h-[95%] w-auto max-w-full object-contain drop-shadow-[8px_8px_0px_rgba(0,0,0,0.3)] group-hover:scale-110 transition-transform duration-300 filter contrast-125"
                     />
-                </div>
-
-                {/* Comic Action Text/Onomatopoeia */}
-                <div className="absolute bottom-4 left-2 bg-white border-2 border-black px-3 py-1 text-sm font-black transform -rotate-6 z-20 shadow-[4px_4px_0_#000]">
-                    {product.id === 'bane-no' ? '¡CRACK!' : product.id === 'enigma' ? '¿?' : '¡BOOM!'}
                 </div>
               </div>
 
